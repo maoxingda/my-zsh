@@ -1,6 +1,7 @@
 # --------User specification configurations
 
 # aliases
+alias xll='exa -l'
 alias xgrep='grep -iE'
 alias rsync='rsync -avz'
 
@@ -17,7 +18,7 @@ function s3() {
     if [[ $s3_cli_on == "" ]]; then
         s3_cli_on="True"
         OLD_PS1=$PS1
-        PS1="%{$fg_bold[red]%}┌[%{$fg_bold[red]%}aws-s3-cli%{$fg_bold[red]%}]
+        PS1="%{${fg_bold[red]}%}┌[%{${fg_bold[red]}%}aws-s3-cli%{${fg_bold[red]}%}]
 └> % %{$reset_color%}"
     else
         s3_cli_on=""
@@ -25,30 +26,32 @@ function s3() {
     fi
 }
 
-function sls() {
+function s3ls() {
     local s3Uri=$1
     aws s3 ls "$s3Uri"
 }
 
-function sup() {
+function s3upload() {
     local localPath=$1
     local s3Uri=$2
-    aws s3 cp "$localPath" "s3://$s3Uri"
+    shift 2
+    aws s3 cp "$localPath" "s3://$s3Uri" "$@"
 }
 
-function sdown() {
+function s3download() {
     local s3Uri=$1
     local localPath=$2
-    if [[ "${localPath}" == "" || "${localPath}" == "." ]]; then
+    if [[ "${localPath}" != "-" && "${localPath}" == "" || "${localPath}" == "." ]]; then
         localPath="$PWD"
     fi
-    aws s3 cp "s3://${s3Uri}" "${localPath}"
+    shift 2
+    aws s3 cp "s3://${s3Uri}" "${localPath}" "$@"
 }
 
-function srm() {
+function s3remove() {
     local s3Uri=$1
-    local recursive=$2
-    aws s3 rm "s3://$s3Uri" $recursive
+    shift 2
+    aws s3 rm "s3://$s3Uri" "$@"
 }
 
 # --------oh-my-zsh configurations
@@ -182,3 +185,10 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# must be at the end
+# enable aws cli autocompletion
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+compinit
+complete -C '/usr/local/bin/aws_completer' aws
