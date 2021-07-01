@@ -13,6 +13,13 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 export PATH="/Users/maoxd/bin:/usr/local/opt/mysql@5.7/bin:$PATH"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
 
+# functions tests
+function foo() {
+    for i; do
+        echo "$i"
+    done
+}
+
 # aws s3 cli helper functions
 function s3() {
     if [[ $s3_cli_on == "" ]]; then
@@ -187,7 +194,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # must be at the end
-# enable aws cli autocompletion
+# enable aws cli command & options auto completion
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 compinit
