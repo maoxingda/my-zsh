@@ -35,7 +35,7 @@ function s3() {
 
 function s3ls() {
     local s3Uri=$1
-    aws s3 ls "$s3Uri"
+    aws s3 ls "$s3Uri" | grep $2
 }
 
 function s3upload() {
