@@ -13,53 +13,11 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 export PATH="/Users/maoxd/bin:/usr/local/opt/mysql@5.7/bin:$PATH"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
 
-# functions tests
-function foo() {
-    for i; do
-        echo "$i"
-    done
-}
-
-# aws s3 cli helper functions
-function s3() {
-    if [[ $s3_cli_on == "" ]]; then
-        s3_cli_on="True"
-        OLD_PS1=$PS1
-        PS1="%{${fg_bold[red]}%}┌[%{${fg_bold[red]}%}aws-s3-cli%{${fg_bold[red]}%}]
-└> % %{$reset_color%}"
-    else
-        s3_cli_on=""
-        PS1=$OLD_PS1
-    fi
-}
-
-function s3ls() {
-    local s3Uri=$1
-    aws s3 ls "$s3Uri" | grep $2
-}
-
-function s3upload() {
-    local localPath=$1
-    local s3Uri=$2
-    shift 2
-    aws s3 cp "$localPath" "s3://$s3Uri" "$@"
-}
-
-function s3download() {
-    local s3Uri=$1
-    local localPath=$2
-    if [[ "${localPath}" != "-" && "${localPath}" == "" || "${localPath}" == "." ]]; then
-        localPath="$PWD"
-    fi
-    shift 2
-    aws s3 cp "s3://${s3Uri}" "${localPath}" "$@"
-}
-
-function s3remove() {
-    local s3Uri=$1
-    shift 2
-    aws s3 rm "s3://$s3Uri" "$@"
-}
+# aws s3 cli funcs
+s3cli="$HOME/.aws/cli/s3"
+if [ -f "${s3cli}" ]; then
+    . "${s3cli}"
+fi
 
 # --------oh-my-zsh configurations
 
@@ -73,6 +31,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# shellcheck disable=SC2034
 ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
@@ -135,6 +94,7 @@ ZSH_THEME="random"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# shellcheck disable=SC2034
 plugins=(
     cp
     git
@@ -177,10 +137,12 @@ source "$ZSH"/oh-my-zsh.sh
 
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
+#bindkey '^E' autosuggest-execute
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/maoxd/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+# shellcheck disable=SC2181
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
@@ -199,3 +161,6 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 compinit
 complete -C '/usr/local/bin/aws_completer' aws
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
