@@ -3,7 +3,7 @@
 # aliases
 alias xll='exa -l'
 alias xgrep='grep -iE'
-alias rsync='rsync -avz'
+alias xrsync='rsync -avz'
 
 alias airflowstat='ps -ef | xgrep -v grep | xgrep "airflow-webserver|DagFileProcessorManager"'
 
@@ -12,12 +12,6 @@ export AIRFLOW_HOME=~/airflow
 export HOMEBREW_NO_AUTO_UPDATE=true
 export PATH="/Users/maoxd/bin:/usr/local/opt/mysql@5.7/bin:$PATH"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
-
-# aws s3 cli funcs
-s3cli="$HOME/.aws/cli/s3"
-if [ -f "${s3cli}" ]; then
-    . "${s3cli}"
-fi
 
 # --------oh-my-zsh configurations
 
@@ -155,12 +149,26 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# must be at the end
-# enable aws cli command & options auto completion
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-compinit
-complete -C '/usr/local/bin/aws_completer' aws
+## must be at the end
+## enable aws cli command & options auto completion
+##autoload -U +X bashcompinit && bashcompinit
+#autoload -Uz compinit && compinit
+#complete -C '/usr/local/bin/aws_completer' aws
+#complete -o nospace -C /usr/local/bin/terraform terraform
+# >>> aws s3 cli initialize >>>
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
+autoload -Uz compinit && compinit
+
+for fun in $(find "/Users/maoxd/open-source/aws/s3" -type f -name "*.zsh"); do
+    . "${fun}"
+done
+
+# <<< aws s3 cli initialize <<<# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'l:|=* r:|=*' 'm:{[:lower:]}={[:upper:]}'
+zstyle :compinstall filename '/Users/maoxd/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
