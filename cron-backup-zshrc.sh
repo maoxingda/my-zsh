@@ -1,11 +1,13 @@
 #!/bin/zsh
 
-uhome="/Users/maoxd/"
-repo="$uhome/open-source/zsh/"
+repo=~/open-source/zsh
 
-cp "$uhome/.zshrc" $repo
-pushd $repo
-git add $repo
+cp -f ~/.zshrc ${repo}/.zshrc
+
+pushd "${repo}" || exit 1
+
+git add ${repo}/.zshrc
 git commit -m "daily backup ~/.zshrc"
 git push origin master
-popd
+
+popd || exit 1
