@@ -1,7 +1,10 @@
 # aliases
-alias xll='exa -l'
+alias xl='exa -lh --git --time-style long-iso'
+alias xlt='xl -snew'
+alias xls='xl -s size'
 alias xgrep='grep -iE'
 alias xrsync='rsync -avz'
+alias gaq='alias | egrep git | egrep'
 
 # export variables
 export AIRFLOW_HOME=~/airflow
@@ -144,15 +147,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-# >>> aws s3 cli initialize >>>
-
-autoload -Uz compinit && compinit
-
-for fun in $(find "/Users/maoxd/open-source/aws/s3" -type f -name "*.zsh"); do
-    . "${fun}"
-done
-
-# <<< aws s3 cli initialize <<<
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored
@@ -162,3 +156,15 @@ zstyle :compinstall filename '/Users/maoxd/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# >>> aws s3 cli initialize >>>
+
+autoload -Uz compinit && compinit
+
+setopt GLOBSTARSHORT
+
+for fun in /Users/maoxd/open-source/myaws/s3/**.zsh; do
+    . "${fun}"
+done
+
+# <<< aws s3 cli initialize <<<
