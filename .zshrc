@@ -1,18 +1,26 @@
 # aliases
+alias wl='wc -l'
+alias xs='rsync -avz'
+
+## list files
 alias xl='exa -lh --git --time-style long-iso'
 alias xlt='xl -snew'
 alias xls='xl -s size'
-alias xgrep='grep -iE'
-alias xrsync='rsync -avz'
-alias gaq='alias | egrep git | egrep'
+
+## copy current working directory to clipboard
+alias cpd='copydir'
+
+## grep git aliases
+alias xg='grep -iE'
+alias ag='alias | xg git | xg'
 
 # export variables
 export AIRFLOW_HOME=~/airflow
 export HOMEBREW_NO_AUTO_UPDATE=true
-export PATH=/Users/maoxd/bin:/usr/local/opt/mysql@5.7/bin:${PATH}
+export PATH=~/bin:/usr/local/opt/mysql@5.7/bin:${PATH}
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
 
-# --------oh-my-zsh configurations
+# >>> oh my zsh initialize >>>
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -89,12 +97,14 @@ ZSH_THEME="random"
 # Add wisely, as too many plugins slow down shell startup.
 # shellcheck disable=SC2034
 plugins=(
-    cp
     git
     sudo
+    history
     extract
+    copydir
     autojump
     colored-man-pages
+    zsh-interactive-cd
     zsh-autosuggestions
     zsh-syntax-highlighting
     history-substring-search
@@ -128,9 +138,11 @@ source "$ZSH"/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
-#bindkey '^E' autosuggest-execute
+# bindkey '^P' history-substring-search-up
+# bindkey '^N' history-substring-search-down
+# bindkey '^E' autosuggest-execute
+
+# <<< oh my zsh initialize <<<
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -161,9 +173,10 @@ compinit
 
 autoload -Uz compinit && compinit
 
-setopt GLOBSTARSHORT
+# zsh 5.0.2 (x86_64-redhat-linux-gnu) not support this option
+# setopt GLOBSTARSHORT
 
-for fun in /Users/maoxd/open-source/myaws/s3/**.zsh; do
+for fun in /Users/maoxd/open-source/my-aws/s3/**/*.zsh; do
     . "${fun}"
 done
 
