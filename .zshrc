@@ -6,6 +6,7 @@ alias xs='rsync -avz'
 alias xl='exa -lh --git --time-style long-iso'
 alias xlt='xl -snew'
 alias xls='xl -s size'
+alias xls='xl -s size'
 
 ## copy current working directory to clipboard
 alias cpd='copydir'
