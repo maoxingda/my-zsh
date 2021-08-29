@@ -1,6 +1,7 @@
 # aliases
 alias wl='wc -l'
 alias xs='rsync -avz'
+alias xs='rsync -avz'
 
 ## list files
 alias xl='exa -lh --git --time-style long-iso'
