@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-repo=~/open-source/zsh
+repo=~/open-source/my-zsh
 
 cp -f ~/.zshrc ${repo}/.zshrc
 
