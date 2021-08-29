@@ -2,6 +2,7 @@
 alias wl='wc -l'
 alias xs='rsync -avz'
 alias xs='rsync -avz'
+alias tf='tail -f'
 
 ## list files
 alias xl='exa -lh --git --time-style long-iso'
