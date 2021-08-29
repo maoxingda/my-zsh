@@ -2,6 +2,7 @@
 
 daily backup ~/.zshrc
 
+```shell
 # .-------- minute (0 - 59)
 # | .------ hour (0 - 23)
 # | | .---- day of month (1 - 31)
@@ -15,3 +16,4 @@ daily backup ~/.zshrc
 
 # 每隔30分钟拷贝一次配置文件
 */30 * * * * /bin/cp -f ~/.zshrc ~/open-source/my-zsh/
+```
