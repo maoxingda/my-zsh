@@ -11,6 +11,14 @@ alias xls='xl -s size'
 alias xls='xl -s size'
 alias xltr='xl -T'
 
+## docker
+alias dps='docker ps'
+alias dpa='docker ps --all'
+alias dbd='docker build'
+alias dbr='docker run'
+alias dbi='docker image'
+alias dbm='docker rm -f'
+
 ## copy current working directory to clipboard
 alias cpd='copydir'
 
@@ -103,6 +111,7 @@ ZSH_THEME="random"
 plugins=(
     git
     sudo
+    docker
     history
     extract
     copydir
