@@ -15,9 +15,9 @@ alias xltr='xl -T'
 alias dps='docker ps'
 alias dpa='docker ps --all'
 alias dbd='docker build'
-alias dbr='docker run'
-alias dbi='docker image'
-alias dbm='docker rm -f'
+alias drun='docker run'
+alias dimg='docker image'
+alias drm='docker rm -f'
 
 ## copy current working directory to clipboard
 alias cpd='copydir'
@@ -31,6 +31,7 @@ export AIRFLOW_HOME=~/airflow
 export HOMEBREW_NO_AUTO_UPDATE=true
 export PATH=~/bin:/usr/local/opt/mysql@5.7/bin:${PATH}
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
+export GITLAB_PRIVATE_TOKEN=_ZfAqeoAMmhw16frkuuy
 
 # >>> oh my zsh initialize >>>
 
