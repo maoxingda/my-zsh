@@ -195,3 +195,4 @@ for fun in /Users/maoxd/open-source/my-aws/s3/**/*.zsh; do
 done
 
 # <<< aws s3 cli initialize <<<
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
