@@ -2,6 +2,9 @@
 alias wl='wc -l'
 alias xs='rsync -avz'
 alias tf='tail -f'
+alias ssl='screen -ls'
+alias ssr='screen -r'
+alias sss='screen -S'
 
 ## list files
 alias xl='exa -lh --git --time-style long-iso'
@@ -46,7 +49,7 @@ export ZSH=$HOME/.oh-my-zsh
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # shellcheck disable=SC2034
-ZSH_THEME="random"
+ZSH_THEME="kphoen"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
