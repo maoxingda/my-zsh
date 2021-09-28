@@ -199,3 +199,6 @@ done
 
 # <<< aws s3 cli initialize <<<
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
