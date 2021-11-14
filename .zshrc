@@ -35,6 +35,8 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 export PATH=~/bin:/usr/local/opt/mysql@5.7/bin:${PATH}
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
 export GITLAB_PRIVATE_TOKEN=_ZfAqeoAMmhw16frkuuy
+export REDSHIFT_SANDBOX=bi:XTB^^kc999t@bi-sandbox.c5dfy2rr84za.cn-northwest-1.redshift.amazonaws.com.cn:5439/beta
+export REDSHIFT_PROD=bi_sql_executor:CLwHVGEDbwrwfrDiUiLMYV8t@bi-prod-hc.c5whpuwq7rpp.cn-northwest-1.redshift.amazonaws.com.cn:5439/prod
 
 # >>> oh my zsh initialize >>>
 
@@ -202,3 +204,6 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
