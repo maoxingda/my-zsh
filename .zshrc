@@ -38,6 +38,20 @@ export GITLAB_PRIVATE_TOKEN=_ZfAqeoAMmhw16frkuuy
 export REDSHIFT_SANDBOX=bi:XTB^^kc999t@bi-sandbox.c5dfy2rr84za.cn-northwest-1.redshift.amazonaws.com.cn:5439/beta
 export REDSHIFT_PROD=bi_sql_executor:CLwHVGEDbwrwfrDiUiLMYV8t@bi-prod-hc.c5whpuwq7rpp.cn-northwest-1.redshift.amazonaws.com.cn:5439/prod
 
+HADOOP_HOME=/tmp/hadoop/hadoop-3.1.3
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export HADOOP_YARN_HOME=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_INSTALL=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+
 # >>> oh my zsh initialize >>>
 
 # If you come from bash you might have to change your $PATH.
