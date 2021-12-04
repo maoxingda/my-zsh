@@ -1,3 +1,7 @@
+# login airflow server
+alias sdaf='ssh sdaf'
+alias pdaf='ssh pdaf'
+
 # aliases
 alias wl='wc -l'
 alias xs='rsync -avz'
