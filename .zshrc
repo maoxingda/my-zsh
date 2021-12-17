@@ -1,6 +1,7 @@
 # login airflow server
 alias sdaf='ssh sdaf'
 alias pdaf='ssh pdaf'
+alias jsvr='ssh jpsvr'
 
 # aliases
 alias wl='wc -l'
