@@ -42,7 +42,8 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Hom
 export GITLAB_PRIVATE_TOKEN=_ZfAqeoAMmhw16frkuuy
 export REDSHIFT_SANDBOX=bi:XTB^^kc999t@bi-sandbox.c5dfy2rr84za.cn-northwest-1.redshift.amazonaws.com.cn:5439/beta
 export REDSHIFT_PROD=bi_sql_executor:CLwHVGEDbwrwfrDiUiLMYV8t@bi-prod-hc.c5whpuwq7rpp.cn-northwest-1.redshift.amazonaws.com.cn:5439/prod
-export DBT_PROFILES_DIR=/Users/maoxd/code/dbt-data-transform
+# export DBT_PROFILES_DIR=/Users/maoxd/code/dbt-data-transform
+export DBT_PROFILES_DIR=~/.dbt
 
 HADOOP_HOME=/tmp/hadoop/hadoop-3.1.3
 export PATH=$PATH:$HADOOP_HOME/bin
