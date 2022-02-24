@@ -3,6 +3,9 @@ alias sdaf='ssh sdaf'
 alias pdaf='ssh pdaf'
 alias jsvr='ssh jpsvr'
 
+# doris
+alias sdd='mycli -h 172.24.31.99 -P 6033 -u doris -p PE7e8jg__WQWLZiVv.rNj9df rs_ads'
+
 # aliases
 alias wl='wc -l'
 alias xs='rsync -avz'
