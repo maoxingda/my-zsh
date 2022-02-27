@@ -4,7 +4,8 @@ alias pdaf='ssh pdaf'
 alias jsvr='ssh jpsvr'
 
 # doris
-alias sdd='mycli -h 172.24.31.99 -P 6033 -u doris -p PE7e8jg__WQWLZiVv.rNj9df rs_ads'
+alias sdd='mycli mysql://doris:PE7e8jg__WQWLZiVv.rNj9df@172.24.31.99:6033/rs_ads'
+alias pdd='mycli mysql://report:feFKyUCta6jmfXxmFzPfXGQN@10.128.1.220:6033/rs_ads'
 
 # aliases
 alias wl='wc -l'
