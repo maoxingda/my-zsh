@@ -145,7 +145,7 @@ plugins=(
     docker
     history
     extract
-    copydir
+    copypath
     autojump
     colored-man-pages
     zsh-interactive-cd
