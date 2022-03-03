@@ -49,7 +49,7 @@ export REDSHIFT_PROD=bi_sql_executor:CLwHVGEDbwrwfrDiUiLMYV8t@bi-prod-hc.c5whpuw
 # export DBT_PROFILES_DIR=/Users/maoxd/code/dbt-data-transform
 export DBT_PROFILES_DIR=~/.dbt
 
-HADOOP_HOME=/tmp/hadoop/hadoop-3.1.3
+HADOOP_HOME=/Users/maoxd/Downloads/hadoop-3.1.3
 export PATH=$PATH:$HADOOP_HOME/bin
 export PATH=$PATH:$HADOOP_HOME/sbin
 export HADOOP_HDFS_HOME=$HADOOP_HOME
