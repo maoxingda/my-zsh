@@ -32,7 +32,7 @@ alias dimg='docker image'
 alias drm='docker rm -f'
 
 ## copy current working directory to clipboard
-alias cpd='copydir'
+alias cpd='pwd|pbcopy'
 
 ## grep git aliases
 alias xg='grep -iE'
@@ -145,7 +145,6 @@ plugins=(
     docker
     history
     extract
-    copypath
     autojump
     colored-man-pages
     zsh-interactive-cd
