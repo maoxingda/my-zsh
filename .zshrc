@@ -38,6 +38,9 @@ alias cpd='pwd|pbcopy'
 alias xg='grep -iE'
 alias ag='alias | xg git | xg'
 
+# misc aliases
+alias condaa='conda activate'
+
 # export variables
 export AIRFLOW_HOME=~/airflow
 export HOMEBREW_NO_AUTO_UPDATE=true
